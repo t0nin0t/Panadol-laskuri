@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 interface InfoSectionProps {
@@ -19,19 +18,19 @@ const InfoSection: React.FC<InfoSectionProps> = ({ title, icon, content, default
       >
         <div className="flex items-center gap-2.5">
           <div className={`w-6 h-6 rounded-md flex items-center justify-center ${isOpen ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-500'} transition-colors`}>
-            <i className={`fa-solid ${icon} text-[10px]`}></i>
+            <i className={`fa-solid ${icon} text-xs`}></i>
           </div>
-          <span className={`text-[11px] font-bold uppercase tracking-tight ${isOpen ? 'text-blue-700' : 'text-gray-700'}`}>
+          <span className={`text-xs font-bold uppercase tracking-tight ${isOpen ? 'text-blue-700' : 'text-gray-700'}`}>
             {title}
           </span>
         </div>
-        <i className={`fa-solid fa-chevron-down text-[10px] text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-500' : ''}`}></i>
+        <i className={`fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-500' : ''}`}></i>
       </button>
       
       {isOpen && (
         <div className="px-4 pb-4 animate-fadeIn">
           <div className="pl-8">
-            <p className="text-[10px] text-gray-600 leading-relaxed font-medium">
+            <p className="text-xs text-gray-600 leading-relaxed font-medium">
               {content}
             </p>
           </div>
@@ -73,7 +72,7 @@ const ProductInfo: React.FC = () => {
   return (
     <div className="mt-2 border border-gray-100 rounded-2xl bg-white overflow-hidden shadow-sm">
       <div className="bg-gray-50/50 py-2.5 px-4 border-b border-gray-100">
-         <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.15em]">Tuotetiedot ja ohjeet</span>
+         <span className="text-xs font-black text-gray-400 uppercase tracking-[0.15em]">Tuotetiedot ja ohjeet</span>
       </div>
       <div className="flex flex-col">
         {sections.map((section, idx) => (
