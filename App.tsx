@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo } from 'react';
 import { PANADOL_CONFIG, MIN_WEIGHT, MAX_WEIGHT } from './constants';
 import { DosageResult } from './types';
@@ -25,7 +24,11 @@ const App: React.FC = () => {
   }, []);
 
   const handleWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+    let val = e.target.value;
+    // Poista piste lopusta jos käyttäjä kirjoittaa esim "6."
+    if (val.endsWith('.') && val.length > 1) {
+      val = val.slice(0, -1);
+    }
     setWeight(val);
     const num = parseFloat(val);
     calculateDosage(num);
@@ -47,10 +50,10 @@ const App: React.FC = () => {
             </div>
             <div>
               <h1 className="text-base font-bold text-gray-900 leading-tight">Panadol Laskuri</h1>
-              <p className="text-[10px] text-gray-500 font-medium tracking-tight">24 mg/ml • 15 mg/kg</p>
+              <p className="text-xs text-gray-500 font-medium tracking-tight">24 mg/ml • 15 mg/kg</p>
             </div>
           </div>
-          <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full border border-emerald-100 uppercase tracking-tighter">
+          <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full border border-emerald-100 uppercase tracking-tighter">
             Annos-opas
           </span>
         </div>
@@ -87,7 +90,7 @@ const App: React.FC = () => {
           {isInvalidWeight && (
             <div className="mt-3 p-3 bg-red-50 border border-red-100 rounded-lg flex items-center gap-2 animate-fadeIn">
               <i className="fa-solid fa-triangle-exclamation text-red-500 text-xs"></i>
-              <p className="text-[10px] text-red-800 font-bold leading-tight uppercase">
+              <p className="text-xs text-red-800 font-bold leading-tight uppercase">
                 Virhe: Painon on oltava {MIN_WEIGHT}-{MAX_WEIGHT} kg.
               </p>
             </div>
@@ -112,7 +115,7 @@ const App: React.FC = () => {
                 <i className="fa-solid fa-clock text-blue-600 text-xs mt-0.5"></i>
                 <div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1">Annosväli</h4>
-                  <p className="text-[10px] text-gray-700 leading-relaxed">
+                  <p className="text-xs text-gray-700 leading-relaxed">
                     Odota vähintään 4-6 tuntia annosten välillä. Enimmäisannos on 4 annosta vuorokaudessa.
                   </p>
                 </div>
@@ -124,7 +127,7 @@ const App: React.FC = () => {
                 <i className="fa-solid fa-triangle-exclamation text-amber-600 text-xs mt-0.5"></i>
                 <div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1">Yliannostus</h4>
-                  <p className="text-[10px] text-gray-700 leading-relaxed">
+                  <p className="text-xs text-gray-700 leading-relaxed">
                     Parasetamolin yliannostus voi aiheuttaa vakavia maksavaurioita. Noudata tarkkaan annosta.
                   </p>
                 </div>
@@ -136,7 +139,7 @@ const App: React.FC = () => {
                 <i className="fa-solid fa-user-doctor text-blue-600 text-xs mt-0.5"></i>
                 <div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1">Ota yhteyttä lääkäriin</h4>
-                  <p className="text-[10px] text-gray-700 leading-relaxed">
+                  <p className="text-xs text-gray-700 leading-relaxed">
                     Jos kuume jatkuu yli 3 päivää tai oireet pahenevat, ota yhteyttä terveydenhuoltoon.
                   </p>
                 </div>
@@ -149,16 +152,16 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="p-4 bg-white border-t border-gray-100">
         <div className="bg-amber-50/70 border border-amber-100 rounded-xl p-3">
-          <p className="text-amber-900 text-[10px] font-bold mb-1 flex items-center gap-1 text-center justify-center">
+          <p className="text-amber-900 text-xs font-bold mb-1 flex items-center gap-1 text-center justify-center">
             <i className="fa-solid fa-user-doctor"></i>
             TÄRKEÄ HUOMAUTUS
           </p>
-          <p className="text-[9px] text-amber-800 leading-tight italic text-center">
+          <p className="text-[11px] text-amber-800 leading-tight italic text-center">
             Tämä sovellus on vain ohjeellinen. Varmista annostus aina lääkkeen pakkausselosteesta. Parasetamolin yliannostus on hengenvaarallista.
           </p>
         </div>
         <div className="mt-3 text-center">
-          <p className="text-[8px] text-gray-400 font-bold uppercase tracking-[0.1em]">
+          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.1em]">
             MedCalc Nordic • Versio 2.3
           </p>
         </div>
