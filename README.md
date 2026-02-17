@@ -78,7 +78,7 @@ Sovellus laskee annoksen seuraavien periaatteiden mukaisesti:
 - **Vahvuus:** 24 mg/ml (Panadol oraalisuspensio)
 - **Suositus:** 15 mg/kg
 - **Annosväli:** Vähintään 4-6 tuntia
-- **Enimmäisannos:** 4 annosta vuorokaudessa
+- **Enimmäisannos:** 3 annosta vuorokaudessa
 
 ## ⚠️ Vastuuvapauslauseke
 
