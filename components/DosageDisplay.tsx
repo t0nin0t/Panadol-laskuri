@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { DosageResult } from '../types';
 
@@ -22,7 +21,7 @@ const DosageDisplay: React.FC<Props> = ({ result, isWarning }) => {
     <div className={`mt-4 bg-gradient-to-br ${bgGradient} rounded-xl p-4 shadow-md text-white transition-colors duration-500`}>
       <div className="grid grid-cols-2 gap-4 items-center">
         <div className={`border-r ${borderColor} pr-2`}>
-          <p className="text-[10px] font-bold uppercase opacity-80 mb-1">Kerta-annos</p>
+          <p className="text-xs font-bold uppercase opacity-80 mb-1">Kerta-annos</p>
           <div className="flex items-baseline gap-1">
             <span className="text-2xl font-black">{result.mg.toFixed(1)}</span>
             <span className="text-xs font-medium opacity-90">mg</span>
@@ -30,7 +29,7 @@ const DosageDisplay: React.FC<Props> = ({ result, isWarning }) => {
         </div>
 
         <div className="pl-2">
-          <p className="text-[10px] font-bold uppercase opacity-80 mb-1">Tilavuus</p>
+          <p className="text-xs font-bold uppercase opacity-80 mb-1">Tilavuus</p>
           <div className="flex items-baseline gap-1">
             <span className="text-4xl font-black">{result.ml.toFixed(1)}</span>
             <span className="text-sm font-bold opacity-90">ml</span>
@@ -40,7 +39,7 @@ const DosageDisplay: React.FC<Props> = ({ result, isWarning }) => {
       
       <div className={`mt-3 pt-2 border-t ${borderColor} flex items-center gap-2`}>
         <i className={`fa-solid ${isWarning ? 'fa-triangle-exclamation text-orange-200' : 'fa-syringe text-blue-200'} text-xs`}></i>
-        <p className="text-[10px] font-medium leading-tight opacity-90">
+        <p className="text-xs font-medium leading-tight opacity-90">
           {isWarning && <span className="font-bold block mb-0.5 uppercase tracking-tighter">Huom: Epätyypillinen paino lapselle</span>}
           Suositeltu kerta-annos {result.weight} kg painoiselle on {result.ml.toFixed(1)} ml.
         </p>
