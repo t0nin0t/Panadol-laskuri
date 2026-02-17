@@ -116,7 +116,7 @@ const App: React.FC = () => {
                 <div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1">Annosväli</h4>
                   <p className="text-xs text-gray-700 leading-relaxed">
-                    Odota vähintään 4-6 tuntia annosten välillä. Enimmäisannos on 4 annosta vuorokaudessa.
+                    Odota vähintään 4-6 tuntia annosten välillä. Enimmäisannos on 3 annosta vuorokaudessa.
                   </p>
                 </div>
               </div>
